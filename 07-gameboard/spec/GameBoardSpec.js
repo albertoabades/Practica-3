@@ -84,16 +84,22 @@ describe("Clase GameBoard", function(){
 	it("add",function(){
 	var gmbd = new GameBoard();
 	var foo="foo";
-	//spyOn(this.objects,"push");
 	gmbd.add(foo);
-	//expect(gmbd.objects.push).toHaveBeenCalled();
 	expect(gmbd.objects[0]).toEqual("foo");
 	});
 
 	it("resetRemoved",function(){
+	var gmbd = new GameBoard();
+	gmbd.resetRemoved();
+	expect(gmbd.removed).toBeDefined();
 	});
 
 	it("remove",function(){
+	var gmbd = new GameBoard();
+	gmbd.resetRemoved();
+	gmbd.remove("cero");
+	expect(gmbd.removed).toBeDefined();
+	expect(gmbd.removed[0]).toEqual("cero");
 	});
 
 	it("finalizeRemoved",function(){
