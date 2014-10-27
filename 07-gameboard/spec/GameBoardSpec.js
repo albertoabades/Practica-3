@@ -103,6 +103,18 @@ describe("Clase GameBoard", function(){
 	});
 
 	it("finalizeRemoved",function(){
+	var gmbd = new GameBoard();
+	gmbd.add("cero");
+	gmbd.add("uno");
+	gmbd.add("dos");
+	gmbd.resetRemoved();
+	gmbd.remove("cero");
+	gmbd.remove("uno");
+	gmbd.remove("dos");
+	expect(gmbd.removed).toBeDefined();
+	expect(gmbd.removed.length).toEqual(3);
+	gmbd.finalizeRemoved();
+	expect(gmbd.objects.length).toEqual(0);
 	});
 
 	it("iterate",function(){
