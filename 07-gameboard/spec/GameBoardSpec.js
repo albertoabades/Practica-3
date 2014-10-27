@@ -76,22 +76,24 @@ describe("Clase GameBoard", function(){
 	});
 
 	it("draw", function(){
-	spyOn(ctx,"draw");
-	Game = {width: 320, height: 480};
-	var gmbd = new GameBoard();
-	gmbd.draw();
 	});
 
 	it("step",function(){
 	});
 
 	it("add",function(){
-	});
-
-	it("remove",function(){
+	var gmbd = new GameBoard();
+	var foo="foo";
+	//spyOn(this.objects,"push");
+	gmbd.add(foo);
+	//expect(gmbd.objects.push).toHaveBeenCalled();
+	expect(gmbd.objects[0]).toEqual("foo");
 	});
 
 	it("resetRemoved",function(){
+	});
+
+	it("remove",function(){
 	});
 
 	it("finalizeRemoved",function(){
