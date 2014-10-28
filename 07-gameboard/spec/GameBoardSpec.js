@@ -129,6 +129,13 @@ describe("Clase GameBoard", function(){
 	});
 
 	it("detect",function(){
+	var gmbd = new GameBoard();
+	gmbd.add("cero");
+	gmbd.add("uno");
+	var functrue=function(){
+		return true;
+	};
+	expect(gmbd.detect(functrue)).toBe("cero");
 	});
 
 	it("overlap",function(){

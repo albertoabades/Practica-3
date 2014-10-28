@@ -119,13 +119,22 @@ describe("Clase GameBoard", function(){
 
 	it("iterate",function(){
 	var gmbd = new GameBoard();
-	gmbd.add(1);
-	gmbd.add(2);
-	gmbd.add(3);
-	
+	var funvacia= new function(){
+		this.func= function(){return true};
+	};
+	spyOn(funvacia,"func");
+	gmbd.add(funvacia);
+	gmbd.iterate('func');
+	expect(funvacia.func).toHaveBeenCalled();
 	});
 
 	it("detect",function(){
+	var gmbd = new GameBoard();
+	gmbd.add("cero");
+	gmbd.add("uno");
+	var functrue=function(){
+		return true;
+	};
 	});
 
 	it("overlap",function(){
