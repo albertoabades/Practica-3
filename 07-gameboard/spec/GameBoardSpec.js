@@ -79,6 +79,16 @@ describe("Clase GameBoard", function(){
 	});
 
 	it("step",function(){
+		var gmbd = new GameBoard();
+		gmbd.add("cero");
+		gmbd.add("uno");
+		spyOn(gmbd,"resetRemoved");
+		spyOn(gmbd,"iterate");
+		spyOn(gmbd,"finalizeRemoved");
+		gmbd.step(1);
+		expect(gmbd.resetRemoved).toHaveBeenCalled();
+		expect(gmbd.iterate).toHaveBeenCalledWith('step',1);
+		expect(gmbd.finalizeRemoved).toHaveBeenCalled();
 	});
 
 	it("add",function(){
@@ -150,6 +160,7 @@ describe("Clase GameBoard", function(){
 		var rect2 = new Rect(50,100,40,40);
 		var rect3 = new Rect(50,60,40,40);
 		expect(gmbd.overlap(rect1,rect2)).toBe(false);
+		expect(gmbd.overlap(rect1,rect3)).toBe(true);
 	});
 
 	it("collide",function(){
