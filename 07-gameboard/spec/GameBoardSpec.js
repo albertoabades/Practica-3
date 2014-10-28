@@ -69,6 +69,7 @@ describe("Clase GameBoard", function(){
 	expect(ctx).toBeDefined();
 	
 	oldGame=Game
+	Game = {width: 320, height:480};
 	});
 
 	afterEach(function(){
@@ -76,6 +77,10 @@ describe("Clase GameBoard", function(){
 	});
 
 	it("draw", function(){
+		var gmbd = new GameBoard();
+		spyOn(gmbd,"iterate");
+		gmbd.draw(ctx);
+		expect(gmbd.iterate).toHaveBeenCalledWith("draw",ctx);
 	});
 
 	it("step",function(){
