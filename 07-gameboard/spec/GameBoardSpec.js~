@@ -119,13 +119,10 @@ describe("Clase GameBoard", function(){
 
 	it("iterate",function(){
 	var gmbd = new GameBoard();
-	var funvacia= new function(){
-		this.func= function(){return true};
-	};
-	spyOn(funvacia,"func");
-	gmbd.add(funvacia);
-	gmbd.iterate('func');
-	expect(funvacia.func).toHaveBeenCalled();
+	gmbd.add(1);
+	gmbd.add(2);
+	gmbd.add(3);
+	
 	});
 
 	it("detect",function(){
