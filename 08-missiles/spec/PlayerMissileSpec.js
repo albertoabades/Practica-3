@@ -62,6 +62,11 @@ describe("Clase PlayerMissile", function(){
 	});
 
 	it("step", function(){
+		var pmisil = new PlayerMissile(1,1);
+		var board = {remove : function(){return true}};
+		pmisil.board = board;
+		pmisil.step(1);
+		expect(pmisil.y).toBe(-709);
 	});
 
 	it("Construtor", function(){
