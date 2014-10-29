@@ -27,3 +27,59 @@
     la clase en el prototipo
 
 */
+describe("Clase PlayerMissile", function(){
+	var canvas, ctx;
+	
+	beforeEach(function(){
+	loadFixtures('index.html');
+	
+	canvas=$('#game')[0];
+	expect(canvas).toExist();
+	
+	ctx=canvas.getContext('2d');
+	expect(ctx).toBeDefined();
+	
+	oldGame=Game;
+	Game = {width: 320, height:480};
+	});
+
+	afterEach(function(){
+	Game=oldGame;
+	});
+
+	SpriteSheet.map = {
+   	 	ship: { sx: 0, sy: 0, w: 37, h: 42, frames: 1 },
+   	 	missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 }
+	};
+
+	it("draw", function(){
+		var pmisil = new PlayerMissile(1,1);
+		var board = {remove : function(){return true}};
+		pmisil.board = board;
+		spyOn(SpriteSheet,"draw");
+		pmisil.draw(ctx);
+		expect(SpriteSheet.draw).toHaveBeenCalled();
+	});
+
+	it("step", function(){
+	});
+
+	it("Construtor", function(){
+		var pmisil = new PlayerMissile(1,1);
+		expect(pmisil.w).toEqual(2);
+		expect(pmisil.h).toEqual(10);
+		expect(pmisil.x).toEqual(0);
+		expect(pmisil.y).toEqual(-9);
+		expect(pmisil.vy).toEqual(-700);
+	});
+
+	it("Disparo", function(){
+	});
+
+
+
+
+
+
+
+});

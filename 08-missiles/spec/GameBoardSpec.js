@@ -68,7 +68,7 @@ describe("Clase GameBoard", function(){
 	ctx=canvas.getContext('2d');
 	expect(ctx).toBeDefined();
 	
-	oldGame=Game
+	oldGame=Game;
 	Game = {width: 320, height:480};
 	});
 
